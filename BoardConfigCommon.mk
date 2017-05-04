@@ -160,7 +160,6 @@ BOARD_SEPOLICY_DIRS += \
 
 # Misc.
 TARGET_SYSTEM_PROP := device/samsung/msm8916-common/system.prop
-PRODUCT_COPY_FILES := $(filter-out frameworks/av/media/libeffects/data/audio_effects.conf:system/etc/audio_effects.conf , $(PRODUCT_COPY_FILES))
 
 # TWRP
 # Display

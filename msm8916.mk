@@ -55,7 +55,11 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     libqcompostprocbundle \
     libqcomvisualizer \
-    libqcomvoiceprocessing	
+    libqcomvoiceprocessing
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+	libbt-vendor	
 
 # TinyAlsa utils
 PRODUCT_PACKAGES += \
@@ -143,21 +147,20 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fsck.f2fs
 
-# WCNSS service daemon
-PRODUCT_PACKAGES += \
-    libwcnss_qmi \
-    wcnss_service
-
-# ANT+
-PRODUCT_PACKAGES += \
-   AntHalService \
-   com.dsi.ant.antradio_library \
-   libantradio
-
 # Misc
 PRODUCT_PACKAGES += \
-    libxml2 \
-    Stk
+	curl \
+	libbson \
+	libcurl \
+	ltrace \
+	javax.btobex \
+	tcmiface \
+	tcpdump \
+	libkeyutils \
+	libjpega \
+	libexifa \
+	libstlport \
+	sockev
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
@@ -197,22 +200,11 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
-    
-# Config files for hostapd
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wifi/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
-    $(LOCAL_PATH)/configs/wifi/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    $(LOCAL_PATH)/configs/wifi/hostapd.deny:system/etc/hostapd/hostapd.deny
-
-# SoftAP
-PRODUCT_PACKAGES += \
-    libcurl \
-    libqsap_sdk \
-    libQWiFiSoftApCfg \
-    hostapd \
-    wcnss_service
+	$(LOCAL_PATH)/configs/wifi/hostapd.accept:system/etc/hostapd/hostapd.accept \
+	$(LOCAL_PATH)/configs/wifi/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
+	$(LOCAL_PATH)/configs/wifi/hostapd.deny:system/etc/hostapd/hostapd.deny \
+	$(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	$(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
 # CRDA
 PRODUCT_PACKAGES += \
@@ -221,11 +213,17 @@ PRODUCT_PACKAGES += \
     regdbdump \
     regulatory.bin
 
-# WPA supplicant
+# Wifi
 PRODUCT_PACKAGES += \
-    libwpa_client \
-    wpa_supplicant \
-    wpa_supplicant.conf
+	hostapd \
+	iwconfig \
+	hostapd_cli \
+	libQWiFiSoftApCfg \
+	libqsap_sdk \
+	libwpa_client \
+	libwcnss_qmi \
+	wcnss_service \
+	wpa_supplicant
     
 #Rmnet
 PRODUCT_PACKAGES += \

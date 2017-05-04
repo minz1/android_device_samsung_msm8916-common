@@ -17,6 +17,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Common overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/msm8916-common/overlay
 
+# Also get non-open-source specific aspects if available
+$(call inherit-product-if-exists, vendor/samsung/msm8916-common/msm8916-vendor.mk)
+
 # Screen density
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 

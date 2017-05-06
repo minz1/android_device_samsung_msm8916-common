@@ -83,8 +83,20 @@ ro.qualcomm.bluetooth.pbap=true \
 persist.bt.enableAptXHD=true
 
 # Misc.
+ifneq ($(filter j7ltespr,$(TARGET_DEVICE)),)
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.chipname=MSM8916 \
+ro.chipname=MSM8929
+else
+    ifneq ($(filter a8eltezh,$(TARGET_DEVICE)),)
+    PRODUCT_PROPERTY_OVERRIDES += \
+    ro.chipname=MSM8939
+    endif
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.chipname=MSM8916
+endif
+
+PRODUCT_PROPERTY_OVERRIDES += \
 ro.warmboot.capability=1 \
 ro.qualcomm.cabl=2
 

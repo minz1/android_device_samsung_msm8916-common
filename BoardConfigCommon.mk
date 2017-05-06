@@ -158,7 +158,7 @@ BOARD_SEPOLICY_DIRS += \
     $(LOCAL_PATH)/sepolicy
 
 # Misc.
-TARGET_SYSTEM_PROP := device/samsung/msm8916-common/system.prop
+include device/samsung/msm8916-common/system_prop.mk
 
 # TWRP
 # Display
